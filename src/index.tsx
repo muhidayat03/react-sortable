@@ -1,17 +1,80 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import { render } from "react-dom";
+import { ReactSortable } from "react-sortablejs";
+import "./index.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+export const BasicFunction: React.FC = () => {
+  const [cards, setCards] = useState([
+    {
+      id: 1,
+      text: "Write a cool JS library",
+    },
+    {
+      id: 2,
+      text: "Make it generic enough",
+    },
+    {
+      id: 3,
+      text: "Write README",
+    },
+    {
+      id: 4,
+      text: "Create some examples",
+    },
+    {
+      id: 5,
+      text: "Spam in Twitter",
+    },
+    {
+      id: 6,
+      text: "PROFIT",
+    },
+  ]);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  const style = {
+    border: "1px solid #ededed",
+    borderRadius: "8px",
+    fontFamily: "sans-serif",
+    height: "40px",
+    padding: "16px",
+    marginBottom: ".5rem",
+    backgroundColor: "white",
+    cursor: "move",
+  };
+
+  const handleSetList = (newState: any) => {
+    setCards(newState);
+  };
+
+  const handleSelect = (event: any) => {
+    console.log(event);
+  };
+
+  return (
+    <ReactSortable
+      list={cards}
+      setList={handleSetList}
+      onChoose={handleSelect}
+      animation={1000}
+      selectedClass="active"
+      chosenClass="active"
+    >
+      {cards.map((item) => (
+        <div key={item.id} style={style}>
+          {item.text}
+        </div>
+      ))}
+    </ReactSortable>
+  );
+};
+
+function App() {
+  return (
+    <div className="App">
+      <BasicFunction />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
