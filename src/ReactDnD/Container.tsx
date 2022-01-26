@@ -2,10 +2,6 @@ import { FC, useState } from "react";
 import Card, { Card2 } from "./Card";
 import update from "immutability-helper";
 
-const style = {
-  width: 400,
-};
-
 export interface Item {
   id: number;
   text: string;
@@ -56,8 +52,8 @@ const Container: FC = () => {
   };
 
   return (
-    <div style={style}>
-      <div style={{ padding: 20 }}>
+    <div>
+      <div>
         {!sort && <button onClick={() => setSort(true)}>sort</button>}
         {sort && <button onClick={() => setSort(false)}>done</button>}
       </div>

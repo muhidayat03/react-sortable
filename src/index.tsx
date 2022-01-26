@@ -18,15 +18,17 @@ function App() {
 
       <h1>{type === 1 ? "Sortable js" : "React DnD"}</h1>
 
-      {type === 1 && <SortableComponent />}
-      {type === 2 && (
-        <DndProvider
-          backend={TouchBackend}
-          options={{ enableMouseEvents: true }}
-        >
-          <ReactDnD />
-        </DndProvider>
-      )}
+      <div className="container">
+        {type === 1 && <SortableComponent />}
+        {type === 2 && (
+          <DndProvider
+            backend={TouchBackend}
+            options={{ enableMouseEvents: true }}
+          >
+            <ReactDnD />
+          </DndProvider>
+        )}
+      </div>
     </div>
   );
 }
