@@ -53,7 +53,7 @@ export const SortableComponent: React.FC = () => {
         disabled={!sortable}
       >
         {cards.map((item, index) => (
-          <div key={item.id}>
+          <div key={item.id} className="card-container">
             <div
               className={`card ${sortable && "animation" + ((index % 2) + 1)}`}
             >

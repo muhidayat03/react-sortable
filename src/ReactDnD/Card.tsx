@@ -42,7 +42,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
     getNode: () => elementRef.current,
   }));
   return (
-    <div>
+    <div className="card-container">
       <div
         ref={elementRef}
         draggable={false}
@@ -55,7 +55,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
 });
 
 export const Card2: React.FC<{ text: string }> = ({ text }) => (
-  <div className="card">{text}</div>
+  <div className="card-container">
+    <div className="card">{text}</div>
+  </div>
 );
 
 export default DropTarget(

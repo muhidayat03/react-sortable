@@ -1,16 +1,18 @@
+.card-container {
+  padding: 4px;
+  border-radius: 8px;
+}
 .card {
   border: 1px solid #ededed;
   border-radius: 8px;
   font-family: sans-serif;
   height: 40px;
   padding: 16px;
-  margin-bottom: 0.5rem;
   background-color: white;
   cursor: move;
-  margin-bottom: 10px;
 }
 
-.active>.card {
+.active > .card {
   background-color: #f8f8f8 !important;
   animation: none;
 }
@@ -19,7 +21,6 @@ button {
   margin-bottom: 20px;
   padding: 4px 8px;
 }
-
 
 @keyframes move {
   0% {
@@ -51,8 +52,4 @@ button {
 
 .animation2 {
   animation: move2 0.8s infinite;
-}
-
-.active {
-  background-color: #eee !important;
 }

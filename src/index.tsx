@@ -3,7 +3,6 @@ import { render } from "react-dom";
 import "./index.css";
 import ReactDnD from "./ReactDnD";
 import SortableComponent from "./SortableComponent";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { DndProvider } from "react-dnd";
 
