@@ -1,0 +1,8 @@
+.card {
+  transition: 2s;
+}
+
+.card.drag {
+  background: #f8f8f8;
+  animation: none;
+}
