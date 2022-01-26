@@ -1,5 +1,58 @@
- 
+.card {
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  font-family: sans-serif;
+  height: 40px;
+  padding: 16px;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  cursor: move;
+  margin-bottom: 10px;
+}
 
-.active{
-  background-color: red !important;
+.active>.card {
+  background-color: #f8f8f8 !important;
+  animation: none;
+}
+
+button {
+  margin-bottom: 20px;
+  padding: 4px 8px;
+}
+
+
+@keyframes move {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}
+
+.animation1 {
+  animation: move 0.8s infinite;
+}
+
+.animation2 {
+  animation: move2 0.8s infinite;
+}
+
+.active {
+  background-color: #eee !important;
 }

@@ -4,6 +4,7 @@ import { ReactSortable } from "react-sortablejs";
 import "./index.css";
 
 export const BasicFunction: React.FC = () => {
+  const [sortable, setSortable] = useState(false);
   const [cards, setCards] = useState([
     {
       id: 1,
@@ -31,16 +32,7 @@ export const BasicFunction: React.FC = () => {
     },
   ]);
 
-  const style = {
-    border: "1px solid #ededed",
-    borderRadius: "8px",
-    fontFamily: "sans-serif",
-    height: "40px",
-    padding: "16px",
-    marginBottom: ".5rem",
-    backgroundColor: "white",
-    cursor: "move",
-  };
+  const toggleSortable = () => setSortable(!sortable);
 
   const handleSetList = (newState: any) => {
     setCards(newState);
@@ -51,20 +43,28 @@ export const BasicFunction: React.FC = () => {
   };
 
   return (
-    <ReactSortable
-      list={cards}
-      setList={handleSetList}
-      onChoose={handleSelect}
-      animation={1000}
-      selectedClass="active"
-      chosenClass="active"
-    >
-      {cards.map((item) => (
-        <div key={item.id} style={style}>
-          {item.text}
-        </div>
-      ))}
-    </ReactSortable>
+    <div>
+      <button onClick={toggleSortable}>{!sortable ? "Sort" : "Done"}</button>
+      <ReactSortable
+        list={cards}
+        setList={handleSetList}
+        onChoose={handleSelect}
+        animation={500}
+        selectedClass="active"
+        chosenClass="active"
+        disabled={!sortable}
+      >
+        {cards.map((item, index) => (
+          <div key={item.id}>
+            <div
+              className={`card ${sortable && "animation" + ((index % 2) + 1)}`}
+            >
+              {item.text}
+            </div>
+          </div>
+        ))}
+      </ReactSortable>
+    </div>
   );
 };
 
